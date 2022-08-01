@@ -10,6 +10,6 @@ namespace PL.DTOs
     {
         public int QuestionTypeId { get; set; }
         public string Name { get; set; }
-        public ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

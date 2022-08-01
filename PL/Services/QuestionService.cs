@@ -6,6 +6,7 @@ namespace PL.Services
     public class QuestionService : IQuestionService
     {
         private readonly IUnitOfWork unitOfWork;
+         
         public QuestionService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;

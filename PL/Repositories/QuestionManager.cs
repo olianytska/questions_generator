@@ -14,14 +14,12 @@ namespace PL.Repositories
         public void Create(Question item)
         {
             context.Questions.Add(item);
-            context.SaveChanges();
         }
 
         public void Delete(Question item)
         {
             if (context.Questions.Find(item) != null)
                 context.Questions.Remove(item);
-            context.SaveChanges();
         }
 
         public IEnumerable<Question> GetAllItems()
@@ -33,7 +31,6 @@ namespace PL.Repositories
         {
             var i = context.Questions.Find(item);
             context.Entry(i).CurrentValues.SetValues(item);
-            context.SaveChanges();
         }
 
         public void Dispose()

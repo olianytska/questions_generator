@@ -15,8 +15,8 @@ namespace PL.EF
         : base(options)
         {
         }
-        public DbSet<QuestionType> QuestionTypes { get; set; }
-        public DbSet<Question> Questions { get; set; }
+        public virtual DbSet<QuestionType> QuestionTypes { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
     }
 
     public class QuestionsDbContextFactory : IDesignTimeDbContextFactory<QuestionsDbContext>

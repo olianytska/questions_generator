@@ -12,6 +12,6 @@ namespace PL.DTOs
         public string Title { get; set; }
         public string Answer { get; set; }
         public int QuestionTypeId { get; set; }
-        public QuestionType QuestionType { get; set; }
+        public virtual QuestionType QuestionType { get; set; }
     }
 }

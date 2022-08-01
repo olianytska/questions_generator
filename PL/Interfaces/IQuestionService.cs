@@ -9,6 +9,5 @@ namespace PL.Interfaces
         Task<Question> GenerateQuestion();
         Task AddQuestion(Question question);
         Task AddQuestionType(QuestionType type);
-
     }
 }

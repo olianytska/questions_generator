@@ -12,9 +12,9 @@ namespace PL.Repositories
         private IRepository<Question> questionManager;
         private IRepository<QuestionType> questionTypeManager;
 
-        public UnitOfWork(DbContextOptions<QuestionsDbContext> options)
+        public UnitOfWork(QuestionsDbContext context)
         {
-            context = new QuestionsDbContext(options);
+            this.context = context;
             questionManager = new QuestionManager(context);
             questionTypeManager = new QuestionTypeManager(context);
         }
