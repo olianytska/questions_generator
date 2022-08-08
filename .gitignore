@@ -1,9 +1,9 @@
 #Visual Studio
 .vs/*
-PL/bin/*
-PL/obj/*
-UnitTests/bin/*
-UnitTests/obj/*
+PL/bin/**
+PL/obj/**
+UnitTest/bin/**
+UnitTest/obj/**
 
 #Logs
 Logs/*
