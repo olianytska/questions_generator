@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using log4net.Core;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Moq;
 using PL.Controllers;
 using PL.DTOs;
@@ -38,7 +40,9 @@ namespace UnitTests
             _mockQuestionService = new Mock<IQuestionService>();
             _mockQuestionService.Setup(x => x.GetAllQuestions()).Returns(Task.FromResult(_questions.AsEnumerable()));
 
-            _questionController = new QuestionsManagerController(_mockQuestionService.Object);
+            var mockLogger = Mock.Of<ILogger<QuestionsManagerController>>();
+
+            _questionController = new QuestionsManagerController(_mockQuestionService.Object, mockLogger);
 
         }
 
