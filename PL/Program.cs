@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PL.EF;
+using PL.Extensions;
 using PL.Interfaces;
 using PL.Repositories;
 using PL.Services;
@@ -31,6 +32,12 @@ builder.Services.AddHttpsRedirection(options =>
     options.HttpsPort = 7191;
 });
 
+builder.Host.ConfigureLogging(b =>
+{
+    b.SetMinimumLevel(LogLevel.Information);
+    b.AddLog4Net("log4net.config");
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,6 +46,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.ConfigureBuildInExeptionHandler(app.Services.GetRequiredService<ILoggerFactory>());
 
 app.UseHttpsRedirection();
 

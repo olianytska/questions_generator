@@ -1,3 +1,6 @@
 #Visual Studio
 .vs/*
 PL/bin
+
+#Logs
+Logs/*
