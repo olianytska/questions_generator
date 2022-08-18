@@ -12,9 +12,11 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins("https://localhost:7191/api",
-                                "http://localhost:4200");
+                               "https://localhost:5001/api",
+                               "http://localhost:4200");
         });
 });
+//builder.Services.AddCors();
 builder.Services.AddDbContext<QuestionsDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("QuestionsDBConnection")));
 
 // Add services to the container.
@@ -27,10 +29,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHttpsRedirection(options =>
-{
-    options.HttpsPort = 7191;
-});
+//builder.Services.AddHttpsRedirection(options =>
+//{
+//    options.HttpsPort = 7191;
+//});
 
 builder.Host.ConfigureLogging(b =>
 {
