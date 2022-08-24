@@ -4,10 +4,13 @@ services:
   postgresserver:
      image: lizapostgres
      restart: always
-     ports:
-       - 5432:5432
+     build:
+       context: ./DB
+       dockerfile: Dockerfile
      environment:
+         POSTGRES_USER: postgres
          POSTGRES_PASSWORD: Qwerty123
+         POSTGRES_DB: Interview_questions
      volumes:
        - pgdata:/var/lib/postgresql/data
      networks:
